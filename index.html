@@ -24,13 +24,15 @@
 
             <!-- Floating Top Nav -->
             <nav class="pill-nav">
-                <button class="menu-btn" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="brand-group">
+                <div class="nav-header">
                     <i data-feather="hexagon" class="brand-icon"></i>
+                    <button class="menu-btn" id="menuToggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div class="nav-links" id="navLinks">
                     <a href="https://mixxionpoxxible.quietore.com" class="nav-link" target="_blank" rel="noopener">MIXXIONPOXXIBLE</a>
                     <a href="https://solzzsensei.quietore.com" class="nav-link" target="_blank" rel="noopener">SOLZZSENSEI</a>
                     <a href="https://qlyqqx.quietore.com" class="nav-link" target="_blank" rel="noopener">QLYQQX</a>
@@ -117,9 +119,16 @@
         </aside>
     </div>
 
-    <!-- Initialize Feather Icons -->
+    <!-- Initialize Feather Icons and Mobile Menu -->
     <script>
-      feather.replace()
+      feather.replace();
+      
+      const menuBtn = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      
+      menuBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('nav-active');
+      });
     </script>
 </body>
 </html>
