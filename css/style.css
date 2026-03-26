@@ -366,7 +366,7 @@ body {
 /* =========================================
    RESPONSIVE DESIGN & MOBILE MENU
    ========================================= */
-@media (max-width: 1100px) {
+@media (max-width: 850px) {
     .dept-name {
         font-size: 1.5rem; /* Still scales down slightly here */
     }
@@ -454,10 +454,6 @@ body {
 }
 
 @media (max-width: 600px) {
-    .nav-link {
-        display: none; /* Hide links on mobile nav, keep menu btn */
-    }
-    
     .brand-group {
         padding-right: 0.5rem;
     }
