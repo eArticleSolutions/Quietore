@@ -406,6 +406,24 @@ body {
     .hero-panel {
         padding: 1.5rem;
     }
+
+    /* FIX 1: Prevent title from cutting off on tiny screens */
+    .brand-title {
+        font-size: clamp(2.5rem, 13vw, 3.5rem);
+    }
+
+    /* FIX 2: Stop socials from covering the tagline on mobile */
+    .hero-footer {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        margin-top: 1.5rem;
+        justify-content: flex-start; /* Aligns them nicely under the text */
+    }
+    
+    .hero-content {
+        margin-bottom: 0; /* Clear spacing since socials are now relative */
+    }
     
     .directory-card {
         padding: 1.5rem;
@@ -417,3 +435,4 @@ body {
         font-size: 1.25rem;
     }
 }
+
