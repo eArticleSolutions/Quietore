@@ -93,7 +93,6 @@ body {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    /* Dark gradient to ensure text readability */
     background: linear-gradient(to top, rgba(16,16,16,0.9) 0%, rgba(16,16,16,0.3) 50%, rgba(16,16,16,0.6) 100%);
 }
 
@@ -258,10 +257,9 @@ body {
     background-color: var(--panel-bg);
     border: 1px solid var(--border-glass);
     transition: var(--transition-smooth);
-    group: card;
 }
 
-/* Card Backgrounds - using the hero image with different filters to create unique atmospheric panels */
+/* Card Backgrounds */
 .card-bg {
     position: absolute;
     inset: 0;
@@ -366,9 +364,11 @@ body {
 /* =========================================
    RESPONSIVE DESIGN & MOBILE MENU
    ========================================= */
+
+/* Tablet & Mobile Dropdown Transition */
 @media (max-width: 850px) {
     .dept-name {
-        font-size: 1.5rem; /* Still scales down slightly here */
+        font-size: 1.5rem; /* Scales down slightly */
     }
 
     .pill-nav {
@@ -395,11 +395,11 @@ body {
     }
 
     .menu-btn {
-        display: flex; /* Show hamburger below 1100px */
+        display: flex; /* Show hamburger below 850px */
     }
 
     .nav-links {
-        display: none; /* Hide horizontal links */
+        display: none; /* Hide horizontal links by default */
         flex-direction: column;
         align-items: flex-start;
         background: var(--bg-glass);
@@ -417,6 +417,11 @@ body {
         display: flex;
         animation: dropDown 0.3s ease forwards;
     }
+    
+    /* Make the links larger on mobile to tap easily */
+    .nav-link {
+        font-size: 0.9rem;
+    }
 }
 
 @keyframes dropDown {
@@ -424,8 +429,8 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 900px) {
-    /* Break split screen to vertical scroll */
+/* Extreme Mobile (Phones) */
+@media (max-width: 600px) {
     .app-container {
         flex-direction: column;
         height: auto;
@@ -441,6 +446,7 @@ body {
         width: 100%;
         height: 60vh;
         min-height: 500px;
+        padding: 1.5rem; /* Less padding on absolute mobile */
     }
     
     .directory-panel {
@@ -449,16 +455,8 @@ body {
     }
     
     .directory-card {
-        aspect-ratio: 2 / 1;
-    }
-}
-
-@media (max-width: 600px) {
-    .brand-group {
-        padding-right: 0.5rem;
-    }
-    
-    .hero-panel {
+        aspect-ratio: auto;
+        min-height: 180px;
         padding: 1.5rem;
     }
 
@@ -478,12 +476,6 @@ body {
     
     .hero-content {
         margin-bottom: 0; /* Clear spacing since socials are now relative */
-    }
-    
-    .directory-card {
-        padding: 1.5rem;
-        aspect-ratio: auto;
-        min-height: 180px;
     }
     
     .dept-name {
