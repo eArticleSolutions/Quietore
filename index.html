@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quietore</title>
+    <!-- Fonts: Lora for luxury serif, Inter for clean UI elements -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Feather Icons for UI -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- LEFT PANEL (HERO) -->
+        <main class="hero-panel">
+            <!-- Background Image (will be replaced by mp4 later) -->
+            <div class="video-container">
+                <img src="assets/hero_main.jpg" alt="Quietore Main Hero" class="hero-media">
+                <div class="hero-overlay"></div>
+            </div>
+
+            <!-- Floating Top Nav -->
+            <nav class="pill-nav">
+                <button class="menu-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="brand-group">
+                    <i data-feather="hexagon" class="brand-icon"></i>
+                    <a href="#" class="nav-link active">HOME</a>
+                    <a href="#" class="nav-link">DEPARTMENTS</a>
+                    <a href="#" class="nav-link">PORTAL</a>
+                </div>
+            </nav>
+
+            <!-- Bottom Left Hero Content -->
+            <div class="hero-content">
+                <h1 class="brand-title">QUIETORE</h1>
+                <p class="brand-tagline">Architecting the future through structured isolation.</p>
+            </div>
+            
+            <!-- Bottom Right Socials/Extras -->
+            <div class="hero-footer">
+                <button class="social-btn"><i data-feather="twitter"></i></button>
+                <button class="social-btn"><i data-feather="linkedin"></i></button>
+            </div>
+        </main>
+
+        <!-- RIGHT PANEL (DIRECTORY BENTO BOX) -->
+        <aside class="directory-panel">
+            
+            <!-- Card 1 -->
+            <a href="https://mixxionpoxxible.quietore.com" class="directory-card card-1" target="_blank" rel="noopener">
+                <div class="card-bg"></div>
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="dept-index">DEPT 01</span>
+                        <h2 class="dept-name">MIXXIONPOXXIBLE</h2>
+                    </div>
+                    <div class="arrow-container">
+                        <i data-feather="arrow-right" class="arrow-icon"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="https://solzzsensei.quietore.com" class="directory-card card-2" target="_blank" rel="noopener">
+                <div class="card-bg"></div>
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="dept-index">DEPT 02</span>
+                        <h2 class="dept-name">SOLZZSENSEI</h2>
+                    </div>
+                    <div class="arrow-container">
+                        <i data-feather="arrow-right" class="arrow-icon"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="https://qlyqqx.quietore.com" class="directory-card card-3" target="_blank" rel="noopener">
+                <div class="card-bg"></div>
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="dept-index">DEPT 03</span>
+                        <h2 class="dept-name">QLYQQX</h2>
+                    </div>
+                    <div class="arrow-container">
+                        <i data-feather="arrow-right" class="arrow-icon"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="https://iamquietore.quietore.com" class="directory-card card-4" target="_blank" rel="noopener">
+                <div class="card-bg"></div>
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="dept-index">DEPT 04</span>
+                        <h2 class="dept-name">IAMQUIETORE</h2>
+                    </div>
+                    <div class="arrow-container">
+                        <i data-feather="arrow-right" class="arrow-icon"></i>
+                    </div>
+                </div>
+            </a>
+
+        </aside>
+    </div>
+
+    <!-- Initialize Feather Icons -->
+    <script>
+      feather.replace()
+    </script>
+</body>
+</html>

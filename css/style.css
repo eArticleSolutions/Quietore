@@ -1,0 +1,419 @@
+/* =========================================
+   VARIABLES
+   ========================================= */
+:root {
+    --bg-base: #101010;
+    --panel-bg: #151515;
+    
+    /* Elegant Champagne Gold */
+    --gold: #dfccab;
+    --gold-hover: #f3e0c0;
+    --text-primary: #ededed;
+    --text-muted: #888888;
+    
+    --font-serif: 'Lora', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    --border-glass: rgba(223, 204, 171, 0.15);
+    --border-glass-hover: rgba(223, 204, 171, 0.4);
+    --bg-glass: rgba(20, 20, 20, 0.65);
+    
+    --radius-lg: 20px;
+    --radius-pill: 100px;
+    
+    --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   RESET & BASICS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    height: 100vh;
+    overflow: hidden; /* Desktop split screen locks scrolling */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   LAYOUT
+   ========================================= */
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    padding: 1.5rem;
+    gap: 1.5rem;
+}
+
+/* =========================================
+   LEFT: HERO PANEL
+   ========================================= */
+.hero-panel {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background-color: var(--panel-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem;
+}
+
+/* Hero Background */
+.video-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 12s ease;
+}
+
+.hero-panel:hover .hero-media {
+    transform: scale(1.03);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* Dark gradient to ensure text readability */
+    background: linear-gradient(to top, rgba(16,16,16,0.9) 0%, rgba(16,16,16,0.3) 50%, rgba(16,16,16,0.6) 100%);
+}
+
+/* Navigation Pill */
+.pill-nav {
+    position: relative;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    padding: 0.6rem 0.6rem;
+    border-radius: var(--radius-pill);
+    align-self: flex-start;
+}
+
+.menu-btn {
+    background: transparent;
+    border: 1px solid var(--border-glass);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.menu-btn span {
+    display: block;
+    width: 16px;
+    height: 1px;
+    background-color: var(--gold);
+    transition: var(--transition-smooth);
+}
+
+.menu-btn:hover {
+    border-color: var(--gold);
+    background: rgba(223, 204, 171, 0.1);
+}
+
+.brand-group {
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem 0 1rem;
+    gap: 1.5rem;
+}
+
+.brand-icon {
+    color: var(--gold);
+    width: 20px;
+    height: 20px;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--gold);
+}
+
+/* Bottom Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    margin-top: auto;
+    margin-bottom: 2rem;
+}
+
+.brand-title {
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 8vw, 7.5rem);
+    font-weight: 400;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.brand-tagline {
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.hero-footer {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    z-index: 10;
+    display: flex;
+    gap: 1rem;
+}
+
+.social-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-glass);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-glass);
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.social-btn:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.social-btn i {
+    width: 16px;
+    height: 16px;
+}
+
+/* =========================================
+   RIGHT: DIRECTORY BENTO BOX
+   ========================================= */
+.directory-panel {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.directory-card {
+    position: relative;
+    flex: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    padding: 2rem;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-glass);
+    transition: var(--transition-smooth);
+    group: card;
+}
+
+/* Card Backgrounds - using the hero image with different filters to create unique atmospheric panels */
+.card-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/hero_main.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s ease;
+    z-index: 1;
+}
+
+.card-1 .card-bg { background-position: top; filter: grayscale(80%) sepia(20%) hue-rotate(10deg) brightness(0.6); }
+.card-2 .card-bg { background-position: center; filter: grayscale(90%) brightness(0.5); }
+.card-3 .card-bg { background-position: bottom; filter: sepia(40%) hue-rotate(340deg) brightness(0.4); }
+.card-4 .card-bg { background-position: left; filter: grayscale(100%) brightness(0.4); }
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(16,16,16,0.8) 0%, rgba(16,16,16,0.4) 100%);
+    z-index: 2;
+    transition: opacity 0.5s ease;
+}
+
+.directory-card:hover {
+    border-color: var(--border-glass-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+.directory-card:hover .card-bg {
+    transform: scale(1.05);
+}
+
+.directory-card:hover .card-overlay {
+    opacity: 0.7;
+}
+
+.card-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.dept-index {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--gold);
+    opacity: 0.8;
+}
+
+.dept-name {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    transition: color 0.3s;
+}
+
+.directory-card:hover .dept-name {
+    color: var(--gold);
+}
+
+.arrow-container {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--bg-glass);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+}
+
+.directory-card:hover .arrow-container {
+    background: var(--gold);
+    color: var(--bg-base);
+    border-color: var(--gold);
+    transform: translateX(5px) scale(1.05);
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1200px) {
+    .dept-name {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    /* Break split screen to vertical scroll */
+    .app-container {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+    
+    body {
+        height: auto;
+        overflow-y: auto;
+    }
+    
+    .hero-panel {
+        width: 100%;
+        height: 60vh;
+        min-height: 500px;
+    }
+    
+    .directory-panel {
+        width: 100%;
+        height: auto;
+    }
+    
+    .directory-card {
+        aspect-ratio: 2 / 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-link {
+        display: none; /* Hide links on mobile nav, keep menu btn */
+    }
+    
+    .brand-group {
+        padding-right: 0.5rem;
+    }
+    
+    .hero-panel {
+        padding: 1.5rem;
+    }
+    
+    .directory-card {
+        padding: 1.5rem;
+        aspect-ratio: auto;
+        min-height: 180px;
+    }
+    
+    .dept-name {
+        font-size: 1.25rem;
+    }
+}
