@@ -3,132 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quietore</title>
-    <!-- Fonts: Lora for luxury serif, Inter for clean UI elements -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Quietore | Precision in the Quiet</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Feather Icons for UI -->
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-    <div class="app-container">
-        
-        <!-- LEFT PANEL (HERO) -->
-        <main class="hero-panel">
-            <!-- Background Image (will be replaced by mp4 later) -->
-            <div class="video-container">
-                <img src="assets/hero_main.jpg" alt="Quietore Main Hero" class="hero-media">
-                <div class="hero-overlay"></div>
+    <div class="background-overlay"></div>
+    <div class="grain-overlay"></div>
+
+    <header class="main-header">
+        <div class="logo-wrapper">
+            <h1 class="logo-text">Quietore</h1>
+        </div>
+        <nav class="top-nav">
+            <a href="#standard" class="nav-link">THE STANDARD</a>
+            <a href="#paths" class="nav-link">CHOOSE YOUR PATH</a>
+        </nav>
+    </header>
+
+    <main class="viewport">
+        <!-- Section 1: Hero -->
+        <section class="section hero-section" id="hero">
+            <div class="hero-inner">
+                <div class="headline-box">
+                    <h2 class="sub-headline">Total Clarity. Absolute Certainty. Flawless Execution.</h2>
+                    <h1 class="main-headline">Master the quiet.<br>Command the core.</h1>
+                    <p class="mission-statement">
+                        Complexity to clarity. Friction to flow. <br>
+                        We engineer products, media, and automations that execute silently and deliver loudly.
+                    </p>
+                </div>
+                <div class="scroll-indicator">
+                    <span class="scroll-text">EXPLORE</span>
+                    <div class="scroll-line"></div>
+                </div>
             </div>
+        </section>
 
-            <!-- Floating Top Nav -->
-            <nav class="pill-nav">
-                <div class="nav-header">
-                    <i data-feather="hexagon" class="brand-icon"></i>
-                    <button class="menu-btn" id="menuToggle" aria-label="Menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+        <!-- Section 2: The Standard -->
+        <section class="section standard-section" id="standard">
+            <div class="container">
+                <h3 class="section-label">THE STANDARD</h3>
+                <div class="formula-grid">
+                    <div class="formula-intro">
+                        <p>The word <strong>Quietore</strong> isn't in the dictionary. We coined it to define the exact formula of how we build: <strong>Quiet + Core.</strong></p>
+                    </div>
+                    <div class="formula-cols">
+                        <div class="formula-col">
+                            <h4 class="col-title">The Quiet</h4>
+                            <p>We refuse to add to the noise. We build systems that operate silently, getting out of the user's way and eliminating friction at every step.</p>
+                        </div>
+                        <div class="formula-col">
+                            <h4 class="col-title">The Core</h4>
+                            <p>We strip away the unnecessary to target the absolute center of a problem. Zero fluff. We only solve what actually matters.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="nav-links" id="navLinks">
-                    <a href="https://mixxionpoxxible.quietore.com" class="nav-link" target="_blank" rel="noopener">MIXXIONPOXXIBLE</a>
-                    <a href="https://solzzsensei.quietore.com" class="nav-link" target="_blank" rel="noopener">SOLZZSENSEI</a>
-                    <a href="https://qlyqqx.quietore.com" class="nav-link" target="_blank" rel="noopener">QLYQQX</a>
-                    <a href="https://iamquietore.quietore.com" class="nav-link" target="_blank" rel="noopener">IAMQUIETORE</a>
-                </div>
-            </nav>
-
-            <!-- Bottom Left Hero Content -->
-            <div class="hero-content">
-                <h1 class="brand-title">QUIETORE</h1>
-                <p class="brand-tagline">Architecting the future through structured isolation.</p>
             </div>
-            
-            <!-- Bottom Right Socials/Extras -->
-            <div class="hero-footer">
-                <button class="social-btn"><i data-feather="twitter"></i></button>
-                <button class="social-btn"><i data-feather="linkedin"></i></button>
+        </section>
+
+        <!-- Section 3: Choose Your Path -->
+        <section class="section paths-section" id="paths">
+            <div class="container">
+                <h3 class="section-label">CHOOSE YOUR PATH</h3>
+                <div class="paths-grid">
+                    <!-- Path 1: Oraqqle -->
+                    <a href="https://oraqqle.quietore.com" class="path-card" target="_blank">
+                        <div class="path-content">
+                            <span class="path-hook">The Direct Solution.</span>
+                            <div class="path-logo-box">
+                                <img src="assets/oraqqle_logo_gold.png" alt="Oraqqle Logo" class="path-logo">
+                                <h4 class="path-label">ORAQQLE</h4>
+                            </div>
+                            <p class="path-motto">Understand it. Do it. Done.</p>
+                            <p class="path-desc">Zero detours. Quest-driven problem solving designed for immediate action.</p>
+                            <div class="path-process">(Identify → Execute → Resolve)</div>
+                        </div>
+                        <div class="path-arrow"><i data-feather="arrow-up-right"></i></div>
+                    </a>
+
+                    <!-- Path 2: Talks with Toqqx -->
+                    <a href="https://talks-with-toqqx.quietore.com" class="path-card" target="_blank">
+                        <div class="path-content">
+                            <span class="path-hook">Deep Immersion.</span>
+                            <div class="path-logo-box">
+                                <img src="assets/toqqx_logo_gold.png" alt="Toqqx Logo" class="path-logo">
+                                <h4 class="path-label">TALKS WITH TOQQX</h4>
+                            </div>
+                            <p class="path-motto">Hear it. Read it. Own it.</p>
+                            <p class="path-desc">Depth you can hear. Insight you can hold. Audiobooks and PDF companions for total knowledge retention.</p>
+                            <div class="path-process">(Absorb → Process → Internalize)</div>
+                        </div>
+                        <div class="path-arrow"><i data-feather="arrow-up-right"></i></div>
+                    </a>
+
+                    <!-- Path 3: Qlyqqx -->
+                    <a href="https://qlyqqx.quietore.com" class="path-card" target="_blank">
+                        <div class="path-content">
+                            <span class="path-hook">Flawless Automation.</span>
+                            <div class="path-logo-box">
+                                <img src="assets/qlyqqx_logo_gold.png" alt="Qlyqqx Logo" class="path-logo">
+                                <h4 class="path-label">QLYQQX</h4>
+                            </div>
+                            <p class="path-motto">Set it. Run it. Rest.</p>
+                            <p class="path-desc">AI systems that never miss. We configure the precision so you don't have to monitor the process.</p>
+                            <div class="path-process">(Configure → Execute → Rest)</div>
+                        </div>
+                        <div class="path-arrow"><i data-feather="arrow-up-right"></i></div>
+                    </a>
+                </div>
             </div>
-        </main>
+        </section>
+    </main>
 
-        <!-- RIGHT PANEL (DIRECTORY BENTO BOX) -->
-        <aside class="directory-panel">
-            
-            <!-- Card 1 -->
-            <a href="https://mixxionpoxxible.quietore.com" class="directory-card card-1" target="_blank" rel="noopener">
-                <div class="card-bg"></div>
-                <div class="card-overlay"></div>
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="dept-index">DEPT 01</span>
-                        <h2 class="dept-name">MIXXIONPOXXIBLE</h2>
-                    </div>
-                    <div class="arrow-container">
-                        <i data-feather="arrow-right" class="arrow-icon"></i>
-                    </div>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-cta">
+                <p>Tired of the friction? Build with the mission.</p>
+                <p class="footer-sub">We don't pitch. We align.</p>
+            </div>
+            <div class="footer-bottom">
+                <span class="copyright">© Quietore. Precision in the quiet.</span>
+                <div class="social-links">
+                    <a href="#"><i data-feather="twitter"></i></a>
+                    <a href="#"><i data-feather="linkedin"></i></a>
                 </div>
-            </a>
+            </div>
+        </div>
+    </footer>
 
-            <!-- Card 2 -->
-            <a href="https://solzzsensei.quietore.com" class="directory-card card-2" target="_blank" rel="noopener">
-                <div class="card-bg"></div>
-                <div class="card-overlay"></div>
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="dept-index">DEPT 02</span>
-                        <h2 class="dept-name">SOLZZSENSEI</h2>
-                    </div>
-                    <div class="arrow-container">
-                        <i data-feather="arrow-right" class="arrow-icon"></i>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Card 3 -->
-            <a href="https://qlyqqx.quietore.com" class="directory-card card-3" target="_blank" rel="noopener">
-                <div class="card-bg"></div>
-                <div class="card-overlay"></div>
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="dept-index">DEPT 03</span>
-                        <h2 class="dept-name">QLYQQX</h2>
-                    </div>
-                    <div class="arrow-container">
-                        <i data-feather="arrow-right" class="arrow-icon"></i>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Card 4 -->
-            <a href="https://iamquietore.quietore.com" class="directory-card card-4" target="_blank" rel="noopener">
-                <div class="card-bg"></div>
-                <div class="card-overlay"></div>
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="dept-index">DEPT 04</span>
-                        <h2 class="dept-name">IAMQUIETORE</h2>
-                    </div>
-                    <div class="arrow-container">
-                        <i data-feather="arrow-right" class="arrow-icon"></i>
-                    </div>
-                </div>
-            </a>
-
-        </aside>
-    </div>
-
-    <!-- Initialize Feather Icons and Mobile Menu -->
     <script>
-      feather.replace();
-      
-      const menuBtn = document.getElementById('menuToggle');
-      const navLinks = document.getElementById('navLinks');
-      
-      menuBtn.addEventListener('click', () => {
-          navLinks.classList.toggle('nav-active');
-      });
+        feather.replace();
+        
+        // Simple scroll reveal or background effect could go here
     </script>
 </body>
 </html>
