@@ -1,143 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quietore | Precision in the Quiet</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://unpkg.com/feather-icons"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quietore — Master the quiet. Command the core.</title>
+<meta name="description" content="Quietore builds AI partners, not apps. Buy once, keep forever. Systems that learn you, adapt, and compound — Oraqqle, Talks With Toqqx, and Qlyqqx." />
+<meta property="og:title" content="Quietore — Master the quiet. Command the core." />
+<meta property="og:description" content="AI partners, not apps. Buy once, keep forever. Systems built on the Hermes Agent backbone that learn you and grow with you." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="img/hero.jpg" />
+<link rel="icon" type="image/png" href="img/quietore_logo-00.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#1f1f1f;
+    --bg-deep:#171717;
+    --bg-elevated:#2a2a2a;
+    --bg-mid:#252525;
+    --fg:#e7e7e7;
+    --fg-soft:#cbcbcb;
+    --muted:#888888;
+    --muted-2:#6f6f6f;
+    --disabled:#595959;
+    --gold:#c5aa88;
+    --gold-mid:#d4b896;
+    --gold-bright:#ffeaab;
+    --gold-peak:#fffec7;
+    --border:#2a2a2a;
+    --gradient-bg: radial-gradient(ellipse at center, #2a2a2a 0%, #1f1f1f 45%, #171717 100%);
+    --gradient-gold: linear-gradient(135deg, #c5aa88 0%, #ffeaab 100%);
+    --shadow-gold: 0 10px 40px -10px rgba(197,170,136,0.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--fg);
+    line-height:1.6;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;letter-spacing:-0.01em;line-height:1.15}
+  a{color:var(--gold);text-decoration:none;transition:color .25s ease}
+  a:hover{color:var(--gold-bright)}
+  .container{max-width:1200px;margin:0 auto;padding:0 32px}
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+    margin-bottom:24px;
+  }
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(23,23,23,0.72);
+    border-bottom:1px solid rgba(197,170,136,0.08);
+  }
+  nav .inner{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;max-width:1400px;margin:0 auto}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--fg);letter-spacing:.04em}
+  .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--gradient-gold);box-shadow:0 0 12px var(--gold-bright)}
+  .nav-links{display:flex;gap:36px;font-size:13px;letter-spacing:.05em}
+  .nav-links a{color:var(--muted);font-weight:400}
+  .nav-links a:hover{color:var(--gold)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:120px 0 0;
+    background:var(--gradient-bg);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 40% at 50% 30%, rgba(197,170,136,0.08), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-image{
+    position:relative;
+    max-width:1200px;
+    width:calc(100% - 64px);
+    margin:0 auto;
+    border:1px solid rgba(197,170,136,0.18);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .hero-image img{display:block;width:100%;height:auto;opacity:.95}
+  .hero-image::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 55%,rgba(15,15,15,0.55) 85%,var(--bg) 100%);
+    pointer-events:none;z-index:1;
+  }
+  .hero-title{
+    position:absolute;
+    right:clamp(24px,5vw,80px);
+    bottom:clamp(24px,5vw,72px);
+    z-index:2;
+    margin:0;
+    text-align:right;
+    font-size:clamp(64px,11vw,180px);
+    line-height:.9;
+    letter-spacing:-0.03em;
+    background:linear-gradient(180deg,#fffec7 0%,#c5aa88 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 4px 40px rgba(0,0,0,0.5);
+    pointer-events:none;
+  }
+  .hero-tagline{
+    text-align:center;
+    padding:72px 32px 96px;
+    background:var(--gradient-bg);
+  }
+  .hero-tagline .tagline{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(24px,3.2vw,40px);
+    color:var(--fg);
+    margin:0 auto;
+    max-width:880px;
+    background:linear-gradient(180deg,#f5e7c8 0%,#c5aa88 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero-claim{
+    max-width:720px;margin:0 auto;padding:0 32px 64px;text-align:center;
+  }
+  .hero-claim p{font-size:18px;color:var(--fg-soft);margin-bottom:18px}
+  .hero-claim p.lead{font-size:22px;color:var(--fg);font-family:'Cormorant Garamond',serif;font-style:italic}
+
+  /* SECTIONS */
+  section{padding:120px 0;position:relative}
+  .section-head{text-align:center;max-width:760px;margin:0 auto 72px}
+  .section-head h2{font-size:clamp(36px,5vw,60px);margin-bottom:24px}
+  .section-head h2 .accent{
+    background:var(--gradient-gold);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    font-style:italic;
+  }
+  .section-head p{font-size:17px;color:var(--muted);max-width:600px;margin:0 auto}
+
+  /* WHY (two cards) */
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:980px;margin:0 auto}
+  @media(max-width:780px){.why-grid{grid-template-columns:1fr}}
+  .why-card{
+    padding:48px 40px;background:var(--bg-elevated);
+    border:1px solid rgba(197,170,136,0.12);
+    border-radius:16px;position:relative;overflow:hidden;
+  }
+  .why-card::before{
+    content:"";position:absolute;top:0;left:0;width:40px;height:1px;background:var(--gradient-gold);
+  }
+  .why-card h3{font-size:36px;margin-bottom:16px;color:var(--gold-bright)}
+  .why-card p{color:var(--fg-soft);font-size:15.5px}
+
+  /* BENEFITS */
+  .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto}
+  @media(max-width:880px){.benefits{grid-template-columns:1fr;gap:32px}}
+  .benefit{
+    position:relative;
+    padding:96px 32px 32px;
+    border:1px solid rgba(197,170,136,0.12);
+    border-radius:16px;
+    background:#1c1c1c;
+  }
+  .benefit .num{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:64px;color:var(--gold);opacity:.7;line-height:1;
+    position:absolute;
+    top:24px;
+    left:32px;
+  }
+  .benefit h3{font-size:26px;margin-bottom:16px;color:var(--fg)}
+  .benefit p{color:var(--muted);font-size:15px;margin-bottom:12px}
+  .benefit ul{list-style:none;margin-top:16px}
+  .benefit li{font-size:14.5px;color:var(--fg-soft);padding-left:20px;position:relative;margin-bottom:10px}
+  .benefit li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--gold)}
+
+  /* SYSTEM CARDS */
+  .systems{padding:120px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-deep) 100%)}
+  .system-card{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    margin-bottom:64px;
+    border:1px solid rgba(255,255,255,0.04);
+    background:#1c1c1c;
+    overflow:hidden;
+    border-radius:16px;
+    transition:transform .4s ease, border-color .4s ease, box-shadow .4s ease;
+  }
+  .system-card:hover{transform:translateY(-4px)}
+  @media(max-width:880px){.system-card{grid-template-columns:1fr}}
+  .system-card .media{
+    position:relative;min-height:420px;
+    background-size:cover;background-position:center;
+  }
+  .system-card .media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.55) 100%);
+  }
+  .system-card.reverse{direction:rtl}
+  .system-card.reverse > *{direction:ltr}
+  .system-card .body{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
+  @media(max-width:880px){.system-card .body{padding:40px 28px}.system-card .media{min-height:280px}}
+  .system-card h3{font-size:42px;line-height:1.1;margin-bottom:8px}
+  .system-card .subtitle{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;margin-bottom:24px}
+  .system-card .pitch{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--fg-soft);margin-bottom:28px;line-height:1.4}
+  .system-card h4{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;margin:24px 0 12px;color:var(--muted)}
+  .system-card .item{margin-bottom:18px}
+  .system-card .item strong{display:block;font-weight:500;color:var(--fg);margin-bottom:4px;font-size:15px}
+  .system-card .item span{font-size:14px;color:var(--muted-2);line-height:1.55}
+  .system-card ul.benefits-list{list-style:none;margin-top:8px}
+  .system-card ul.benefits-list li{font-size:14px;color:var(--fg-soft);padding-left:18px;position:relative;margin-bottom:8px}
+  .system-card ul.benefits-list li::before{content:"·";position:absolute;left:0;top:-2px;color:var(--gold);font-size:20px;line-height:1}
+  .system-cta{
+    display:inline-flex;align-items:center;gap:10px;margin-top:32px;
+    padding:14px 28px;border:1px solid;border-radius:30px;
+    font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;
+    transition:all .3s ease;align-self:flex-start;
+  }
+  .system-cta::after{content:"→";font-size:14px;transition:transform .3s ease}
+  .system-cta:hover::after{transform:translateX(4px)}
+
+  /* Per-card theme variables */
+  .card-oraqqle{--accent:#e77360;--accent-bright:#f0a090;--accent-bg:#1a1a1a}
+  .card-oraqqle .media{background-color:#262626;background-image:url('img/oraqqle.jpg')}
+  .card-oraqqle h3,.card-oraqqle .subtitle{color:var(--accent-bright)}
+  .card-oraqqle .system-cta{color:var(--accent);border-color:rgba(231,115,96,0.5)}
+  .card-oraqqle .system-cta:hover{background:var(--accent);color:#1a1a1a;border-color:var(--accent)}
+  .card-oraqqle:hover{border-color:rgba(231,115,96,0.35);box-shadow:0 20px 60px -25px rgba(231,115,96,0.4)}
+
+  .card-toqqx{--accent:#8668a8;--accent-bright:#c9b4ea;--accent-bg:#1a181e}
+  .card-toqqx .media{background-color:#241754;background-image:url('img/toqqx.jpg')}
+  .card-toqqx h3,.card-toqqx .subtitle{color:var(--accent-bright)}
+  .card-toqqx .system-cta{color:var(--accent-bright);border-color:rgba(134,104,168,0.5)}
+  .card-toqqx .system-cta:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .card-toqqx:hover{border-color:rgba(201,180,234,0.3);box-shadow:0 20px 60px -25px rgba(134,104,168,0.45)}
+
+  .card-qlyqqx{--accent:#64ffda;--accent-bright:#5fefd0;--accent-bg:#0a192f}
+  .card-qlyqqx .media{background-color:#0a192f;background-image:url('img/qlyqqx.jpg')}
+  .card-qlyqqx h3,.card-qlyqqx .subtitle{color:var(--accent)}
+  .card-qlyqqx .system-cta{color:var(--accent);border-color:rgba(100,255,218,0.4)}
+  .card-qlyqqx .system-cta:hover{background:var(--accent);color:#0a192f;border-color:var(--accent)}
+  .card-qlyqqx:hover{border-color:rgba(100,255,218,0.3);box-shadow:0 20px 60px -25px rgba(100,255,218,0.35)}
+
+  /* COMMUNITY / AFFILIATE */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:1100px;margin:0 auto;align-items:center}
+  @media(max-width:880px){.split{grid-template-columns:1fr;gap:48px}}
+  .split h2{font-size:clamp(32px,4.5vw,52px);margin-bottom:24px}
+  .split p{color:var(--fg-soft);font-size:16px;margin-bottom:16px}
+  .split ul{list-style:none;margin-top:24px}
+  .split li{padding-left:24px;position:relative;color:var(--fg-soft);margin-bottom:14px;font-size:15px}
+  .split li::before{content:"◆";position:absolute;left:0;top:0;color:var(--gold);font-size:10px}
+  .stat{
+    background:var(--bg-elevated);border:1px solid rgba(197,170,136,0.12);
+    padding:48px;text-align:center;border-radius:16px;
+  }
+  .stat .big{
+    font-family:'Cormorant Garamond',serif;font-size:88px;line-height:1;
+    background:var(--gradient-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    margin-bottom:8px;
+  }
+  .stat .label{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .stat .sub{margin-top:24px;color:var(--fg-soft);font-size:15px;line-height:1.6}
+
+  /* CTA / CLOSING */
+  .closing{
+    padding:140px 0 100px;
+    background:radial-gradient(ellipse at center,#2a2a2a 0%,#171717 80%);
+    text-align:center;border-top:1px solid rgba(197,170,136,0.1);
+  }
+  .closing h2{font-size:clamp(40px,6vw,72px);margin-bottom:24px}
+  .closing .lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--fg-soft);max-width:680px;margin:0 auto 48px}
+  .path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:980px;margin:64px auto 56px}
+  @media(max-width:780px){.path-grid{grid-template-columns:1fr}}
+  .path{
+    padding:32px 24px;border:1px solid rgba(255,255,255,0.06);background:#1c1c1c;
+    transition:all .3s ease;cursor:pointer;border-radius:16px;
+  }
+  .path:hover{transform:translateY(-3px)}
+  .path .name{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:8px}
+  .path .desc{font-size:13px;color:var(--muted);letter-spacing:.04em}
+  .path-oraqqle .name{color:#f0a090}
+  .path-oraqqle:hover{border-color:rgba(231,115,96,0.4);box-shadow:0 12px 40px -20px rgba(231,115,96,0.4)}
+  .path-toqqx .name{color:#c9b4ea}
+  .path-toqqx:hover{border-color:rgba(201,180,234,0.4);box-shadow:0 12px 40px -20px rgba(134,104,168,0.4)}
+  .path-qlyqqx .name{color:#64ffda}
+  .path-qlyqqx:hover{border-color:rgba(100,255,218,0.4);box-shadow:0 12px 40px -20px rgba(100,255,218,0.35)}
+
+  .btn-primary{
+    display:inline-block;padding:18px 44px;
+    background:var(--gradient-gold);color:#171717;
+    font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+    border:none;cursor:pointer;border-radius:30px;
+    transition:transform .25s ease,box-shadow .25s ease;
+    box-shadow:var(--shadow-gold);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 50px -10px rgba(255,234,171,0.4);color:#171717}
+  .btn-ghost{
+    display:inline-block;padding:18px 36px;margin-left:12px;
+    color:var(--gold);border:1px solid rgba(197,170,136,0.4);background:transparent;
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border-radius:30px;
+    transition:all .25s ease;
+  }
+  .btn-ghost:hover{border-color:var(--gold-bright);color:var(--gold-bright)}
+  @media(max-width:520px){.btn-ghost{margin-left:0;margin-top:12px;display:block}}
+
+  /* DIVIDER */
+  .divider{
+    width:60px;height:1px;background:var(--gradient-gold);margin:0 auto 32px;
+  }
+
+  /* FOOTER */
+  footer{
+    padding:48px 32px;text-align:center;
+    border-top:1px solid rgba(197,170,136,0.1);
+    color:var(--muted-2);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    background:var(--bg-deep);
+  }
+  footer span{color:var(--gold);font-style:italic;text-transform:none;letter-spacing:0;font-family:'Cormorant Garamond',serif;font-size:14px;margin-left:8px}
+
+</style>
 </head>
 <body>
-    <div class="background-overlay"></div>
-    <div class="grain-overlay"></div>
 
-    <header class="main-header">
-        <div class="logo-wrapper">
-            <h1 class="logo-text">Quietore</h1>
+<nav>
+  <div class="inner">
+    <div class="logo"><img src="img/quietore_logo-00.png" alt="Quietore Logo" style="height:28px;width:auto;" />Quietore</div>
+    <div class="nav-links">
+      <a href="#why">Why</a>
+      <a href="#systems">Systems</a>
+      <a href="#community">Community</a>
+      <a href="#affiliate">Affiliate</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-image">
+    <img src="img/hero.jpg" alt="Five portraits in black, gold and quiet light — the people Quietore is built for" />
+    <h1 class="hero-title">Quietore</h1>
+  </div>
+  <div class="hero-tagline">
+    <p class="tagline">Master the quiet. Command the core.</p>
+  </div>
+  <div class="hero-claim">
+    <p class="lead">These aren't apps. They're partners.</p>
+    <p>Every system you interact with here learns you, adapts to you, and gets sharper the more you use it.</p>
+    <p>You don't rent. You buy once and keep forever. The system grows with you.</p>
+    <p style="color:var(--muted);margin-top:24px">If you're tired of AI tools that reset every day, forget your history, and cap your upside — this is different.</p>
+  </div>
+</header>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Why Quietore Matters</div>
+      <h2>Quietore = <span class="accent">Quiet</span> + <span class="accent">Core</span></h2>
+      <p>This is not branding. It's a design philosophy that shapes how every Quietore system behaves.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>Quiet</h3>
+        <p>No noise. No fluff. No monthly churn. Systems that operate quietly, get out of your way, and remove friction from your actual work and growth.</p>
+      </div>
+      <div class="why-card">
+        <h3>Core</h3>
+        <p>We strip everything back to the center of your real problem and solve only that. No "feature tourism." Just focused, durable systems that compound.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section style="background:var(--bg-mid);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What You're Getting</div>
+      <h2>Three things most tools <span class="accent">refuse to give you</span></h2>
+    </div>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="num">01</div>
+        <h3>A real partner, not a tool</h3>
+        <p>An agent that both learns and teaches.</p>
+        <ul>
+          <li>Remembers your patterns, decisions, and context</li>
+          <li>Sharper every time you show up</li>
+          <li>Grows with use, not with updates</li>
+        </ul>
+      </div>
+      <div class="benefit">
+        <div class="num">02</div>
+        <h3>Community as part of the product</h3>
+        <p>Each system lives inside a hosted Whop community.</p>
+        <ul>
+          <li>Share wins and accountability buddies</li>
+          <li>Live drops and sessions from builders</li>
+          <li>Growth is faster when you're not alone</li>
+        </ul>
+      </div>
+      <div class="benefit">
+        <div class="num">03</div>
+        <h3>Affiliate upside that makes sense</h3>
+        <p>30% commission on every referral.</p>
+        <ul>
+          <li>Bring 4 people — recoup your purchase + ~20% profit</li>
+          <li>Everything after that is real upside</li>
+          <li>Recommend tools you love, get paid</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS -->
+<section id="systems" class="systems">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">The Systems</div>
+      <h2>Choose your <span class="accent">partnership</span></h2>
+      <p>Three distinct systems. Each one a long-term partner. Each one built around a different center of gravity.</p>
+    </div>
+	
+    <!-- QLYQQX -->
+    <article class="system-card card-qlyqqx">
+      <div class="media" role="img" aria-label="Qlyqqx visual"></div>
+      <div class="body">
+        <div class="subtitle">Intelligence for Complex Systems</div>
+        <h3>Qlyqqx</h3>
+        <p class="pitch">Not productivity software. Precision intelligence for the systems most tools weren't built to handle.</p>
+
+        <h4>What it includes</h4>
+        <div class="item">
+          <strong>Symbia</strong>
+          <span>For kombucha brewers, sourdough bakers, mushroom growers, saltwater coral aquarium keepers, and other biological processes. Learns your system's rhythms, tracks critical variables, and flags what needs attention — before things go wrong.</span>
         </div>
-        <nav class="top-nav">
-            <a href="#standard" class="nav-link">THE STANDARD</a>
-            <a href="#paths" class="nav-link">CHOOSE YOUR PATH</a>
-        </nav>
-    </header>
-
-    <main class="viewport">
-        <!-- Section 1: Hero -->
-        <section class="section hero-section" id="hero">
-            <div class="hero-inner">
-                <div class="headline-box">
-                    <h2 class="sub-headline">Total Clarity. Absolute Certainty. Flawless Execution.</h2>
-                    <h1 class="main-headline">Master the quiet.<br>Command the core.</h1>
-                    <p class="mission-statement">
-                        Complexity to clarity. Friction to flow. <br>
-                        We engineer products, media, and automations that execute silently and deliver loudly.
-                    </p>
-                </div>
-                <div class="scroll-indicator">
-                    <span class="scroll-text">EXPLORE</span>
-                    <div class="scroll-line"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: The Standard -->
-        <section class="section standard-section" id="standard">
-            <div class="container">
-                <h3 class="section-label">THE STANDARD</h3>
-                <div class="formula-grid">
-                    <div class="formula-intro">
-                        <p>The word <strong>Quietore</strong> isn't in the dictionary. We coined it to define the exact formula of how we build: <strong>Quiet + Core.</strong></p>
-                    </div>
-                    <div class="formula-cols">
-                        <div class="formula-col">
-                            <h4 class="col-title">The Quiet</h4>
-                            <p>We refuse to add to the noise. We build systems that operate silently, getting out of the user's way and eliminating friction at every step.</p>
-                        </div>
-                        <div class="formula-col">
-                            <h4 class="col-title">The Core</h4>
-                            <p>We strip away the unnecessary to target the absolute center of a problem. Zero fluff. We only solve what actually matters.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Choose Your Path -->
-        <section class="section paths-section" id="paths">
-            <div class="container">
-                <h3 class="section-label">CHOOSE YOUR PATH</h3>
-                <div class="paths-grid">
-                    <!-- Path 1: Oraqqle -->
-                    <a href="https://oraqqle.quietore.com" class="path-card" target="_blank">
-                        <div class="path-content">
-                            <span class="path-hook">The Direct Solution.</span>
-                            <div class="path-logo-box">
-                                <img src="assets/oraqqle_logo_gold.png" alt="Oraqqle Logo" class="path-logo">
-                                <h4 class="path-label">ORAQQLE</h4>
-                            </div>
-                            <p class="path-motto">Understand it. Do it. Done.</p>
-                            <p class="path-desc">Zero detours. Quest-driven problem solving designed for immediate action.</p>
-                            <div class="path-process">(Identify → Execute → Resolve)</div>
-                        </div>
-                        <div class="path-arrow"><i data-feather="arrow-up-right"></i></div>
-                    </a>
-
-                    <!-- Path 2: Talks with Toqqx -->
-                    <a href="https://talks-with-toqqx.quietore.com" class="path-card" target="_blank">
-                        <div class="path-content">
-                            <span class="path-hook">Deep Immersion.</span>
-                            <div class="path-logo-box">
-                                <img src="assets/toqqx_logo_gold.png" alt="Toqqx Logo" class="path-logo">
-                                <h4 class="path-label">TALKS WITH TOQQX</h4>
-                            </div>
-                            <p class="path-motto">Hear it. Read it. Own it.</p>
-                            <p class="path-desc">Depth you can hear. Insight you can hold. Audiobooks and PDF companions for total knowledge retention.</p>
-                            <div class="path-process">(Absorb → Process → Internalize)</div>
-                        </div>
-                        <div class="path-arrow"><i data-feather="arrow-up-right"></i></div>
-                    </a>
-
-                    <!-- Path 3: Qlyqqx -->
-                    <a href="https://qlyqqx.quietore.com" class="path-card" target="_blank">
-                        <div class="path-content">
-                            <span class="path-hook">Flawless Automation.</span>
-                            <div class="path-logo-box">
-                                <img src="assets/qlyqqx_logo_gold.png" alt="Qlyqqx Logo" class="path-logo">
-                                <h4 class="path-label">QLYQQX</h4>
-                            </div>
-                            <p class="path-motto">Set it. Run it. Rest.</p>
-                            <p class="path-desc">AI systems that never miss. We configure the precision so you don't have to monitor the process.</p>
-                            <div class="path-process">(Configure → Execute → Rest)</div>
-                        </div>
-                        <div class="path-arrow"><i data-feather="arrow-up-right"></i></div>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-cta">
-                <p>Tired of the friction? Build with the mission.</p>
-                <p class="footer-sub">We don't pitch. We align.</p>
-            </div>
-            <div class="footer-bottom">
-                <span class="copyright">© Quietore. Precision in the quiet.</span>
-                <div class="social-links">
-                    <a href="#"><i data-feather="twitter"></i></a>
-                    <a href="#"><i data-feather="linkedin"></i></a>
-                </div>
-            </div>
+        <div class="item">
+          <strong>Wisp</strong>
+          <span>For students and teachers. Students study smarter, not harder. Teachers monitor understanding in real time, spot who's falling behind early, and personalize support at scale.</span>
         </div>
-    </footer>
+        <div class="item">
+          <strong>Wrapp</strong>
+          <span>For UGC ad creators. Helps you land deals faster, produce content without the back-and-forth chaos, and build a workflow that actually scales with your output.</span>
+        </div>		
 
-    <script>
-        feather.replace();
-        
-        // Simple scroll reveal or background effect could go here
-    </script>
+        <h4>How it helps you</h4>
+        <ul class="benefits-list">
+          <li>Handles the complexity so you can focus on the craft</li>
+          <li>Reduces guesswork and daily firefighting</li>
+          <li>Learns your environment and gets sharper as you work</li>
+        </ul>
+
+        <a class="system-cta" href="https://qlyqqx.quietore.com/">Enter Qlyqqx</a>
+      </div>
+    </article>
+
+    <!-- TOQQX -->
+    <article class="system-card card-toqqx reverse">
+      <div class="media" role="img" aria-label="Talks With Toqqx visual"></div>
+      <div class="body">
+        <div class="subtitle">Audiobooks That Talk Back</div>
+        <h3>Talks With Toqqx</h3>
+        <p class="pitch">Most audiobooks you listen to and forget. These ones actually stick.</p>
+
+        <h4>What it includes</h4>
+        <div class="item">
+          <strong>A Hermes‑powered agent for every title</strong>
+          <span>Ask questions, challenge ideas, connect concepts to your life, and drill into key frameworks — while you listen.</span>
+        </div>
+        <div class="item">
+          <strong>Titles</strong>
+          <span>Brain Loop Marketing · SoberTalk20s · Unbecoming You - The Paradox of Being Alive · Good Dad, Different Address · The Sandwich Generation · and more coming.</span>
+        </div>
+
+        <h4>How it helps you</h4>
+        <ul class="benefits-list">
+          <li>Moves you from passive consumption to active engagement</li>
+          <li>Helps you retain, apply, and internalize what you hear</li>
+          <li>Makes every audiobook feel like a private coaching session</li>
+        </ul>
+
+        <a class="system-cta" href="https://talks-with-toqqx.quietore.com/">Enter Toqqx</a>
+      </div>
+    </article>	
+
+    <!-- ORAQQLE -->
+    <article class="system-card card-oraqqle">
+      <div class="media" role="img" aria-label="Oraqqle visual"></div>
+      <div class="body">
+        <div class="subtitle">Spiritual Growth & Personal Development</div>
+        <h3>Oraqqle</h3>
+        <p class="pitch">Your inner work, finally given a serious system.</p>
+
+        <h4>What it includes</h4>
+        <div class="item">
+          <strong>Personal Tarot — Rider‑Waite‑Smith based</strong>
+          <span>A living practice that learns how you draw cards, interpret them, and responds with sharper, more tailored insights over time.</span>
+        </div>
+        <div class="item">
+          <strong>Unapologetic Slay Queen Tarot — 52 weeks</strong>
+          <span>One card, one week. A full year of structured, raw, intentional evolution for people serious about who they're becoming.</span>
+        </div>
+
+        <h4>How it helps you</h4>
+        <ul class="benefits-list">
+          <li>Turns intuition into a repeatable practice</li>
+          <li>Tracks your themes and patterns and reflects them back</li>
+          <li>Makes spiritual growth measurable, not mystical</li>
+        </ul>
+
+        <a class="system-cta" href="https://oraqqle.quietore.com/">Enter Oraqqle</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="eyebrow">Community</div>
+        <h2>Your system grows. <span style="color:var(--gold);font-style:italic">So does your circle.</span></h2>
+        <p>Every Quietore product lives inside a thriving Whop community where the work doesn't stop when you close the app.</p>
+        <ul>
+          <li>Users share wins, setups, and "fail‑fast" lessons</li>
+          <li>Accountability partners and informal cohorts form naturally</li>
+          <li>Builders drop updates, live sessions, and exclusive content</li>
+        </ul>
+        <p style="margin-top:28px;color:var(--fg-soft);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px">
+          This isn't a "bonus chat room." The community is part of the product — where shared experience makes every system stronger.
+        </p>
+      </div>
+      <div class="stat">
+        <div class="big">∞</div>
+        <div class="label">Shared Experience</div>
+        <p class="sub">A live circle of practitioners, builders, and users behind every system you join.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AFFILIATE -->
+<section id="affiliate" style="background:var(--bg-mid);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="split">
+      <div class="stat">
+        <div class="big">30<span style="font-size:48px">%</span></div>
+        <div class="label">Affiliate Commission</div>
+        <p class="sub">Bring 4 people and you've already recouped your purchase + roughly 20% profit. Everything after is pure upside.</p>
+      </div>
+      <div>
+        <div class="eyebrow">Affiliate Program</div>
+        <h2>Get rewarded for <span style="color:var(--gold);font-style:italic">believing in it</span></h2>
+        <p>If a system is working for you, telling someone about it pays — literally.</p>
+        <p>This is not a side hustle add‑on. It's a real financial reward for growing a community that actually solves real problems.</p>
+        <ul>
+          <li>30% commission on every referral</li>
+          <li>Recoup your purchase with 4 referrals</li>
+          <li>Every person after that is pure upside</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="container">
+    <div class="divider"></div>
+    <div class="eyebrow">Choose Your Path</div>
+    <h2>You've been using tools <span style="color:var(--gold);font-style:italic">that forget you.</span></h2>
+    <p class="lead">Quietore builds systems that remember, learn, and grow with you. They're not SaaS. They're not feature‑dusted chatbots. They're partners you keep forever.</p>
+
+    <div class="path-grid">
+	  <a class="path path-qlyqqx" href="https://qlyqqx.quietore.com/">
+        <div class="name">Qlyqqx</div>
+        <div class="desc">Precision intelligence for complex systems</div>
+      </a>
+	  <a class="path path-toqqx" href="https://talks-with-toqqx.quietore.com/">
+        <div class="name">Talks With Toqqx</div>
+        <div class="desc">Audiobooks that talk back</div>
+      </a>
+      <a class="path path-oraqqle" href="https://oraqqle.quietore.com/">
+        <div class="name">Oraqqle</div>
+        <div class="desc">Spiritual growth & personal development</div>
+      </a>
+      
+    </div>
+
+    <div>
+      <a class="btn-primary" href="#systems">Pick your path</a>
+      <a class="btn-ghost" href="#systems">Start the partnership</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © Quietore <span>Precision in the quiet.</span>
+</footer>
+
 </body>
 </html>
